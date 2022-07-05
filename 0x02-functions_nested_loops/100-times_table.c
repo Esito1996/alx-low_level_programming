@@ -1,51 +1,34 @@
-#include "holberton.h"
+#include <stdio.h>
 
 /**
- * print_times_table - Prints a multiplication table up to param
- * @n: The number to be treated
+ * main - Prints all possible combinations of two two-digit numbers,
+ * ranging from 0-99, separated by a comma followed by a space.
  *
- * Return: Number matrix
+ * Return: Always 0.
  */
-void print_times_table(int n)
+int main(void)
 {
-	int x, y, z;
+ int num1, num2;
 
-	if (n >= 0 && n <= 14)
-	{
-		for (x = 0; x <= n; x++)
-		{
-			for (y = 0; y <= n; y++)
-			{
-				z = x * y;
-				if (z > 99)
-				{
-					_putchar(',');
-					_putchar(32);
-					_putchar((z / 100) + '0');
-					_putchar(((z / 10) % 10) + '0');
-					_putchar((z % 10) + '0');
-				}
-				else if (z > 9)
-				{
-					_putchar(',');
-					_putchar(32);
-					_putchar(32);
-					_putchar(((z / 10) % 10) + '0');
-					_putchar((z % 10) + '0');
-				}
-				else
-				{
-					if (y != 0)
-					{
-						_putchar(',');
-						_putchar(32);
-						_putchar(32);
-						_putchar(32);
-					}
-					_putchar(z + '0');
-				}
-			}
-			_putchar('\n');
-		}
-	}
+ for (num1 = 0; num1 <= 98; num1++)
+ {
+  for (num2 = num1 + 1; num2 <= 99; num2++)
+  {
+   putchar((num1 / 10) + '0');
+   putchar((num1 % 10) + '0');
+   putchar(' ');
+   putchar((num2 / 10) + '0');
+   putchar((num2 % 10) + '0');
+
+   if (num1 == 98 && num2 == 99)
+    continue;
+
+   putchar(',');
+   putchar(' ');
+  }
+ }
+
+ putchar('\n');
+
+ return (0);
 }
